@@ -7,11 +7,10 @@ type SearchParams = { search?: string }
 export default async function PostsPage({
   searchParams
 }: {
-  searchParams: Promise<SearchParams>
+  searchParams: SearchParams
 }) {
   try {
-    const resolvedSearchParams = await searchParams
-    const query = resolvedSearchParams.search || ''
+    const query = searchParams?.search || ''
     
     const posts: Post[] = query
       ? await searchPosts(query)

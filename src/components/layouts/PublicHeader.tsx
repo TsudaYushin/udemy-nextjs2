@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import SearchBox from "@/components/post/SearchBox";
 import { Home } from "lucide-react";
+import { Suspense } from "react";
 
 export function PublicHeader() {
   return (
@@ -14,7 +15,9 @@ export function PublicHeader() {
 
         {/* 検索バー */}
         <div className="flex-1 min-w-0 max-w-md mx-auto sm:mx-0">
-          <SearchBox />
+          <Suspense fallback={null}>
+            <SearchBox />
+          </Suspense>
         </div>
 
         {/* ログインボタン */}

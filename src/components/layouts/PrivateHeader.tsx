@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 import { logout } from '@/lib/actions/logout';
 import SearchBox from '@/components/post/SearchBox';
 import { Home } from 'lucide-react';
+import { Suspense } from 'react';
 
 export default async function PrivateHeader() {
   const session = await auth(); // サーバーサイドでセッション情報を取得
@@ -22,7 +23,9 @@ export default async function PrivateHeader() {
 
         {/* 検索バー */}
         <div className="flex-1 min-w-0 max-w-md mx-auto sm:mx-0">
-          <SearchBox />
+          <Suspense fallback={null}>
+            <SearchBox />
+          </Suspense>
         </div>
 
         {/* ユーザー情報とログアウト */}
