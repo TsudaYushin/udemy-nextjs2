@@ -20,11 +20,11 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  serverExternalPackages: ['@prisma/client', 'prisma'],
   experimental: {
     serverActions: {
       bodySizeLimit: '5mb',
     },
-    serverComponentsExternalPackages: ['@prisma/client', 'prisma'],
   },
 };
 

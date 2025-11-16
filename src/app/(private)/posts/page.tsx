@@ -4,6 +4,8 @@ import type { Post } from '@/types/post'
 
 type SearchParams = { search?: string }
 
+export const dynamic = 'force-dynamic'
+
 export default async function PrivatePostsPage({
   searchParams
 }: {
