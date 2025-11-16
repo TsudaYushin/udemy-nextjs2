@@ -19,6 +19,10 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '5mb', // 必要に応じて値を変更
     },
     serverComponentsExternalPackages: ['@prisma/client', 'prisma'],
+    outputFileTracingIncludes: {
+      // Prismaのバイナリ/クエリエンジンをバンドル対象に含める
+      '/**/*': ['node_modules/.prisma/**', 'node_modules/@prisma/**'],
+    },
   },
 };
 
