@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate || true"
+  },
+  "engines": {
+    "node": "^20 || ^22"
   },
   "dependencies": {
     "@prisma/client": "^6.19.0",
