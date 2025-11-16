@@ -14,11 +14,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-    experimental: {
-      serverActions: {
+  experimental: {
+    serverActions: {
       bodySizeLimit: '5mb', // 必要に応じて値を変更
-      },
-      },
+    },
+    serverComponentsExternalPackages: ['@prisma/client', 'prisma'],
+  },
 };
 
 export default nextConfig;
