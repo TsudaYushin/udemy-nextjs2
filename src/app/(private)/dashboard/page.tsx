@@ -26,8 +26,8 @@ export default async function DashboardPage() {
     console.log('Dashboard Debug:', {
       userId,
       userEmail: session.user.email,
-      postsCount: posts.length,
-      posts: posts.map(p => ({ id: p.id, title: p.title })),
+      postsCount: Array.isArray(posts) ? posts.length : 0,
+      posts: (Array.isArray(posts) ? posts : []).map(p => ({ id: p.id, title: p.title })),
     });
   }
 
