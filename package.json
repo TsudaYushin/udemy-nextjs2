@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "rm -rf node_modules/.prisma/client",
-    "build": "npx prisma generate --schema=./prisma/schema.prisma --force && next build",
+    "prisma:generate": "npx prisma generate --schema=./prisma/schema.prisma --force",
+    "build": "npm run prisma:generate && next build",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "rm -rf node_modules/.prisma/client"
