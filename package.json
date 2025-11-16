@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "rm -rf node_modules/.prisma/client",
-    "build": "next build",
+    "build": "prisma generate --force && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postinstall": "rm -rf node_modules/.prisma/client"
   },
   "engines": {
     "node": "^20 || ^22"
