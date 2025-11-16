@@ -2,14 +2,18 @@ import { searchPosts, getPosts } from '@/lib/post'
 import { PostCard } from '@/components/post/PostCard'
 import type { Post } from '@/types/post'
 
+type SearchParams = { search?: string }
+
+export const dynamic = 'force-dynamic'
+
 export default async function PostsPage({
   searchParams
 }: {
-  searchParams?: { [key: string]: string | string[] | undefined }
+  searchParams: Promise<SearchParams>
 }) {
   try {
-    const queryParam = searchParams?.search
-    const query = Array.isArray(queryParam) ? queryParam[0] ?? '' : (queryParam ?? '')
+    const resolved = await searchParams
+    const query = resolved.search || ''
     
     const posts: Post[] = query
       ? await searchPosts(query)
