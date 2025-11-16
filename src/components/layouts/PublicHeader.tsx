@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import SearchBox from "@/components/post/SearchBox ";
+import SearchBox from "@/components/post/SearchBox";
 import { Home } from "lucide-react";
 
 export function PublicHeader() {

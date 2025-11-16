@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { auth } from '@/auth';
 import { logout } from '@/lib/actions/logout';
-import SearchBox from '@/components/post/SearchBox ';
+import SearchBox from '@/components/post/SearchBox';
 import { Home } from 'lucide-react';
 
 export default async function PrivateHeader() {
