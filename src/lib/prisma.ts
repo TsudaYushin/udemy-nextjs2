@@ -1,4 +1,4 @@
-import { PrismaClient } from '@/generated/prisma/client'
+import { PrismaClient } from '@prisma/client'
 import path from 'path'
 
 // グローバルスコープでPrismaインスタンスを保持できる場所を作る
