@@ -67,9 +67,9 @@ export default async function DashboardPage() {
       <div className="mt-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold">自分の投稿一覧</h2>
-          {posts.length === 0 && <CreateDummyPostsButton />}
+          {Array.isArray(posts) && posts.length === 0 && <CreateDummyPostsButton />}
         </div>
-        {posts.length === 0 ? (
+        {Array.isArray(posts) && posts.length === 0 ? (
           <Card>
             <CardContent className="py-8 text-center text-muted-foreground">
               <p className="mb-4">投稿がありません</p>
@@ -89,16 +89,19 @@ export default async function DashboardPage() {
                 </tr>
               </thead>
               <tbody>
-                {posts.map((post) => (
+                {(Array.isArray(posts) ? posts : []).map((post) => (
                   <tr key={post.id}>
                     <td className="border p-2">
                       {post.topImage ? (
                         <div className="relative w-20 h-20 overflow-hidden rounded">
                           {post.topImage.includes('supabase.co') ? (
-                            <img
+                            <Image
                               src={post.topImage}
                               alt={post.title}
-                              className="absolute inset-0 w-full h-full object-cover"
+                              fill
+                              sizes="80px"
+                              className="object-cover"
+                              unoptimized
                             />
                           ) : (
                             <Image
